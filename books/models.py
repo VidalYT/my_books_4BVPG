@@ -6,6 +6,14 @@ class Category(models.Model):
    
 class Book(models.Model):
 
+    ACTIVE = 'active'
+    DRAFT = 'draft'
+
+    CHOICES_STATUS = {
+        (ACTIVE, 'Active'),
+        (DRAFT, 'Draft')
+    }
+
     category = models.ForeignKey(Category, related_name='Book', on_delete=models.CASCADE)
     title = models.CharField(max_length=250)  
     author = models.CharField(max_length=250)  
